@@ -28,8 +28,8 @@ It is a sequence of phases with user checkpoints, not a one-shot rewrite.
 
 | Phase | Load |
 | --- | --- |
-| Audit, colour, tokens | `auditing-design-systems`, `ui-ux-pro-max` |
-| Motion | `emil-design-eng`, `apple-design`, `improve-animations` (audit mode only) |
+| Audit, colour, tokens | `auditing-design-systems`, `ui-ux-pro-max`, `ux-design` |
+| Motion | `motion-design` (build and fluid modes; audit mode for findings only) |
 | Modern CSS/APIs (view transitions, `@property`, popover) | `modern-web-guidance` |
 | Workers, caching | `workers-best-practices` |
 | Svelte targets | `svelte-core-bestpractices` and the matching `svelte-*` skill |

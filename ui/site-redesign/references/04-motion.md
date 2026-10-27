@@ -1,6 +1,6 @@
 # Phase 5: Motion
 
-Load `emil-design-eng` and `apple-design`. Motion is CSS only on baby-ui's contract.
+Load `motion-design` (build and fluid modes). Motion is CSS only on baby-ui's contract.
 
 ## Contract
 
