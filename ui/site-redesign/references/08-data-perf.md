@@ -8,11 +8,11 @@ Load `workers-best-practices` on Cloudflare.
 - Count subrequests per cold request. Workers Free allows 50; batch until a cold page is well under.
 - Cache at three layers, each with a reason:
 
-| Layer | Tool | TTL |
-| --- | --- | --- |
-| Upstream result, shared across isolates | `edgeMemo` (Cache API + per-isolate map) | 1h typical |
-| Browser reuse of RPC responses | `cacheResponse(maxAge, swr)` on `/_serverFn` only | 5 to 60 min |
-| Client navigation | router `defaultStaleTime`, `defaultPreloadStaleTime`, per-route `staleTime` | static content: Infinity |
+| Layer                                   | Tool                                                                        | TTL                      |
+| --------------------------------------- | --------------------------------------------------------------------------- | ------------------------ |
+| Upstream result, shared across isolates | `edgeMemo` (Cache API + per-isolate map)                                    | 1h typical               |
+| Browser reuse of RPC responses          | `cacheResponse(maxAge, swr)` on `/_serverFn` only                           | 5 to 60 min              |
+| Client navigation                       | router `defaultStaleTime`, `defaultPreloadStaleTime`, per-route `staleTime` | static content: Infinity |
 
 ## edgeMemo
 

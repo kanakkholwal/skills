@@ -15,8 +15,16 @@ Load `auditing-design-systems` and use its `color-audit.mjs` for every pair belo
 Default **neutral**, plus blue, violet, green, amber, rose, teal from baby-ui's ramps:
 
 ```css
-html[data-accent="blue"] { --accent: oklch(55% 0.18 255); --accent-fg: oklch(99% 0 0); --accent-ink: oklch(55% 0.18 255); }
-html.dark[data-accent="blue"] { --accent: oklch(70% 0.15 255); --accent-fg: #151515; --accent-ink: oklch(70% 0.15 255); }
+html[data-accent="blue"] {
+	--accent: oklch(55% 0.18 255);
+	--accent-fg: oklch(99% 0 0);
+	--accent-ink: oklch(55% 0.18 255);
+}
+html.dark[data-accent="blue"] {
+	--accent: oklch(70% 0.15 255);
+	--accent-fg: #151515;
+	--accent-ink: oklch(70% 0.15 255);
+}
 ```
 
 Gates per preset, light and dark: fill vs label ≥ 4.5:1, ink vs background ≥ 4.5:1 for text and ≥ 3:1 for

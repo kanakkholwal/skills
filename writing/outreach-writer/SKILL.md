@@ -39,7 +39,7 @@ One line of context → three proof points → one clear ask. Include portfolio/
 - Fake compliments, generic passion statements, or reaching "we have so much in common" hooks.
 - Tech-stack dumps (reads junior; tune tech to the reader's technicality instead).
 - Unsubstantiated numbers, or invented metrics.
-- Screenshots as proof — links do that job.
+- Screenshots as proof: links do that job.
 - Applied tense when the sender is still applying.
 
 ## Tone

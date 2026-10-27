@@ -15,16 +15,16 @@ The reader is an agent with no memory of any other session: be explicit about co
 
 ## 2. Current state (facts)
 
-| Area | Today | Evidence |
-| --- | --- | --- |
-| Framework | <...> | `<path>` |
+| Area       | Today | Evidence |
+| ---------- | ----- | -------- |
+| Framework  | <...> | `<path>` |
 | Components | <...> | `<path>` |
-| Tokens | <...> | `<path>` |
-| Icons | <...> | <count> |
-| Motion | <...> | <count> |
-| Fonts | <...> | `<path>` |
-| SEO/OG | <...> | `<path>` |
-| Deploy/CI | <...> | `<path>` |
+| Tokens     | <...> | `<path>` |
+| Icons      | <...> | <count>  |
+| Motion     | <...> | <count>  |
+| Fonts      | <...> | `<path>` |
+| SEO/OG     | <...> | `<path>` |
+| Deploy/CI  | <...> | `<path>` |
 
 ## 3. Design debt (ranked)
 

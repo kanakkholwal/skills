@@ -25,7 +25,7 @@ Check an item exists before planning around it:
   move the folder into `src/` and repoint `@/*` → `./src/*` in tsconfig and the bundler config.
 - The CLI writes component CSS to the file named in `components.json` (`src/styles/registry.css`); import it
   from the global stylesheet.
-- **Known gap:** the CLI merges only theme *extensions*. Copy baby-ui `theme.css`'s full `@theme inline` block
+- **Known gap:** the CLI merges only theme _extensions_. Copy baby-ui `theme.css`'s full `@theme inline` block
   into the global stylesheet, or `bg-popover`, `text-popover-foreground` and friends resolve to nothing
   (symptom: transparent command dialog).
 - **Known registry bug:** blocks import `@/components/charts/<x>/<x>`; rewrite to `@/components/charts/<x>`.

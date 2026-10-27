@@ -1,7 +1,7 @@
 ---
-
 name: ux-design
 description: UX/UI design guidance for building, reviewing, and critiquing interfaces and frontend code, plus friction audits of user flows. Use when designing screens or components, auditing usability or accessibility (WCAG 2.2, EAA), simulating user journeys, reducing cognitive load or friction, designing ADHD-friendly or flow-preserving UX, writing microcopy, or designing forms, navigation, search, tables, dashboards, onboarding, notifications, real-time collaboration, canvas/whiteboard apps, AI/chat interfaces, i18n/RTL, voice, design systems, or barcode/QR scanning and display.
+license: MIT (see LICENSE)
 ---
 
 # UX Design

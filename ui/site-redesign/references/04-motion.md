@@ -23,15 +23,16 @@ except counters (`RollingDigits startOnView`).
 
 ```ts
 onNavigate((navigation) => {
-  if (!document.startViewTransition) return;
-  return new Promise((resolve) => {
-    document.startViewTransition(async () => {
-      resolve();
-      await navigation.complete;
-    });
-  });
+	if (!document.startViewTransition) return;
+	return new Promise((resolve) => {
+		document.startViewTransition(async () => {
+			resolve();
+			await navigation.complete;
+		});
+	});
 });
 ```
+
 - Root: old fades out with 2px blur in `fast`; new fades in with blur and a 6px lift in `slow`.
 - Persistent chrome (header, sidebar, top bar) gets its own `view-transition-name` with `animation: none`, so
   it doesn't flicker or lag behind the content.
@@ -39,7 +40,9 @@ onNavigate((navigation) => {
   only applied outside the theme reveal:
 
 ```css
-html:not([data-theme-reveal]) [style*="--vt-name"] { view-transition-name: var(--vt-name); }
+html:not([data-theme-reveal]) [style*="--vt-name"] {
+	view-transition-name: var(--vt-name);
+}
 ```
 
 Why: the dark-mode reveal is one whole-page snapshot. If named elements exist during it, they animate on their
@@ -47,14 +50,14 @@ own clock and the sidebar/nav visibly lag or flicker.
 
 ## Text effects (baby-ui `text/*`)
 
-| Effect | Where |
-| --- | --- |
-| RevealText | hero name, 404 |
-| TextLoop (variant `roll`, not fade: fade overlaps text) | rotating roles |
-| RollText / IconRoll | nav rows, footer links, social icons, CTAs on hover |
-| TextTransition | breadcrumb, live clock |
-| RollingDigits | every stat |
-| Marker | short inline links in prose (≤ ~28 chars), drawn on view |
+| Effect                                                  | Where                                                    |
+| ------------------------------------------------------- | -------------------------------------------------------- |
+| RevealText                                              | hero name, 404                                           |
+| TextLoop (variant `roll`, not fade: fade overlaps text) | rotating roles                                           |
+| RollText / IconRoll                                     | nav rows, footer links, social icons, CTAs on hover      |
+| TextTransition                                          | breadcrumb, live clock                                   |
+| RollingDigits                                           | every stat                                               |
+| Marker                                                  | short inline links in prose (≤ ~28 chars), drawn on view |
 
 IconRoll is not a registry item: it is a two-slot clip (icon above, copy below, translate -50% on hover) built
 locally on RollText's timing. Pin its halves (`h-1/2! w-full!`) or the incoming icon bleeds.

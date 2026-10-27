@@ -1,6 +1,7 @@
 ---
 name: motion-design
 description: Web UI motion and design-engineering polish, from deciding whether something should animate to shipping it smooth. Builds animations (CSS, @starting-style, WAAPI, Motion/Framer Motion, GSAP), reviews motion diffs, audits a codebase's motion into self-contained fix plans, finds places that should animate, diagnoses jank and dropped frames, designs Apple-style fluid gestures (springs, drag, sheets, momentum, rubber-banding, materials, typography), and names effects ("what's it called when..."). Use for any request to animate, add motion or micro-interactions, page or layout transitions, review or improve animations, fix choppy animation, or make UI feel better. Not for video rendering (Remotion, HyperFrames) or shaders.
+license: MIT (see LICENSE)
 ---
 
 # Motion Design

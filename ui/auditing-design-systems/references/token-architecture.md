@@ -21,13 +21,13 @@ Name a token for the job it does, never for what it looks like. `--primary` is a
 
 The roles a colour system actually needs:
 
-| Role | Frequency | Job |
-| --- | --- | --- |
-| Action | Once per view | The button the user presses |
-| State | Many per view | Selected, active, focused, on |
-| Status | As needed | Success, warning, error, info — meaning only, never decoration |
-| Structure | Everywhere | Surfaces, borders, secondary text |
-| Encoding | Domain-specific | Chart series, category/lane identity |
+| Role      | Frequency       | Job                                                           |
+| --------- | --------------- | ------------------------------------------------------------- |
+| Action    | Once per view   | The button the user presses                                   |
+| State     | Many per view   | Selected, active, focused, on                                 |
+| Status    | As needed       | Success, warning, error, info: meaning only, never decoration |
+| Structure | Everywhere      | Surfaces, borders, secondary text                             |
+| Encoding  | Domain-specific | Chart series, category/lane identity                          |
 
 These have wildly different frequencies. Fusing two of them into one token is the most
 common structural fault in a design system.
@@ -46,7 +46,7 @@ seductive "brand colour" utility, and the usage ratio enforces itself. A governa
 what a system writes instead of fixing its model.
 
 **Caveat when splitting:** decide the compat alias deliberately. If `--primary` currently
-covers both action and state, aliasing it to a *neutral* action token turns every selected
+covers both action and state, aliasing it to a _neutral_ action token turns every selected
 row and toggle white in dark mode. Alias to the token that is acceptable in both roles
 (usually the chromatic one), then migrate action sites deliberately.
 
@@ -69,7 +69,7 @@ convention to enforce harder.
 
 ## Doc-versus-source drift
 
-Audit these routinely — each is a real finding:
+Audit these routinely: each is a real finding:
 
 - Doc names a token the source never defines.
 - Doc points at the wrong package for tokens the apps actually define.
@@ -90,9 +90,9 @@ reads as "custom".
 
 Two valid fixes:
 
-1. **Stable slug IDs** (`id: "sage"`) — correct long-term, but if the codebase documents
+1. **Stable slug IDs** (`id: "sage"`), correct long-term, but if the codebase documents
    value-as-ID as deliberate back-compat, changing it needs its own migration.
-2. **A legacy-value migration map** — map each retired value to its replacement and apply it
+2. **A legacy-value migration map**: map each retired value to its replacement and apply it
    at load. Cheaper and usually sufficient.
 
 Requirements for a migration map:
@@ -100,7 +100,7 @@ Requirements for a migration map:
 - Every replacement must be a value that still exists. Assert this in a test.
 - It must be idempotent: migrating an already-migrated value is a no-op. Assert this too.
 - Custom (non-preset) values must pass through untouched.
-- Remember it **rewrites stored data** — a saved document will look different. Say so
+- Remember it **rewrites stored data**: a saved document will look different. Say so
   explicitly when reporting; it is the owner's call.
 
 **Namespace IDs when merging preset lists.** If selection is matched by ID across several
@@ -109,16 +109,16 @@ Prefix per list.
 
 ## Common defects worth grepping for
 
-| Pattern | Why it breaks |
-| --- | --- |
-| `hsl(var(--token))` where the token is `oklch()`/hex | Invalid CSS; the whole declaration is silently dropped |
-| `rgba(...)` hardcoded in a token file | Bypasses theming; usually a second, competing accent |
-| A border token lighter than the background it sits on | Invisible; hierarchy tier does not render |
-| A dark-mode border darker than its card | Reads as a seam |
-| `all: unset` on an element selector | Strips focus rings and disabled states |
-| `:has(foo)` where `[foo]` was meant | Never matches; inert rule one typo from firing |
-| Same override duplicated in two apps | Fix upstream and delete both |
-| Out-of-gamut `oklch()` | Silently clipped; rendered colour is not the specified one |
+| Pattern                                               | Why it breaks                                              |
+| ----------------------------------------------------- | ---------------------------------------------------------- |
+| `hsl(var(--token))` where the token is `oklch()`/hex  | Invalid CSS; the whole declaration is silently dropped     |
+| `rgba(...)` hardcoded in a token file                 | Bypasses theming; usually a second, competing accent       |
+| A border token lighter than the background it sits on | Invisible; hierarchy tier does not render                  |
+| A dark-mode border darker than its card               | Reads as a seam                                            |
+| `all: unset` on an element selector                   | Strips focus rings and disabled states                     |
+| `:has(foo)` where `[foo]` was meant                   | Never matches; inert rule one typo from firing             |
+| Same override duplicated in two apps                  | Fix upstream and delete both                               |
+| Out-of-gamut `oklch()`                                | Silently clipped; rendered colour is not the specified one |
 
 Add a regression test that asserts the contrast floors against the token file. The gate is
-what stops the next drift — a documented rule is not.
+what stops the next drift: a documented rule is not.

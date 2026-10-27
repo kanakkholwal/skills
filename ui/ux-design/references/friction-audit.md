@@ -21,16 +21,16 @@ Trigger phrases: "analyze UX", "friction audit", "user journey", "ADHD-friendly"
 
 Apply these patterns to ALL interfaces:
 
-| Principle | Implementation | Why It Matters |
-|-----------|----------------|----------------|
-| **Progressive Disclosure** | Show one task at a time; hide future steps | Prevents overwhelm, maintains focus |
-| **Context Preservation** | Auto-save every keystroke; never lose work | Reduces anxiety about losing progress |
-| **Gentle Reminders** | Status updates, not alarms; no red urgency | Avoids panic, maintains calm |
-| **Pause & Resume** | Session state persists across days/weeks | Respects inconsistent schedules |
-| **Minimal Distractions** | Single focus area; dim non-active panels | Reduces competing stimuli |
-| **Chunked Progress** | Visual cards/steps, not endless scrolling | Creates completion dopamine hits |
-| **Predictable Navigation** | Same layout always; no surprises | Reduces reorientation cost |
-| **Calm Mode Option** | Reduced animations, muted colors on demand | Accommodates sensory sensitivity |
+| Principle                  | Implementation                             | Why It Matters                        |
+| -------------------------- | ------------------------------------------ | ------------------------------------- |
+| **Progressive Disclosure** | Show one task at a time; hide future steps | Prevents overwhelm, maintains focus   |
+| **Context Preservation**   | Auto-save every keystroke; never lose work | Reduces anxiety about losing progress |
+| **Gentle Reminders**       | Status updates, not alarms; no red urgency | Avoids panic, maintains calm          |
+| **Pause & Resume**         | Session state persists across days/weeks   | Respects inconsistent schedules       |
+| **Minimal Distractions**   | Single focus area; dim non-active panels   | Reduces competing stimuli             |
+| **Chunked Progress**       | Visual cards/steps, not endless scrolling  | Creates completion dopamine hits      |
+| **Predictable Navigation** | Same layout always; no surprises           | Reduces reorientation cost            |
+| **Calm Mode Option**       | Reduced animations, muted colors on demand | Accommodates sensory sensitivity      |
 
 ### 2. Gestalt Psychology
 
@@ -77,11 +77,11 @@ Use for progress indicators, loading states
 
 Three types of mental load to manage:
 
-| Type | Definition | Strategy |
-|------|------------|----------|
-| **Intrinsic** | Task complexity itself | Can't eliminate; acknowledge it |
-| **Extraneous** | Poor design adding effort | ELIMINATE THIS - your job |
-| **Germane** | Learning/understanding | Minimize for repeat users |
+| Type           | Definition                | Strategy                        |
+| -------------- | ------------------------- | ------------------------------- |
+| **Intrinsic**  | Task complexity itself    | Can't eliminate; acknowledge it |
+| **Extraneous** | Poor design adding effort | ELIMINATE THIS - your job       |
+| **Germane**    | Learning/understanding    | Minimize for repeat users       |
 
 **Working Memory Limits:**
 - About 4 chunks (Cowan, 2001). Miller's 7±2 is dated; don't use it to cap menus or lists.
@@ -216,9 +216,9 @@ DELIGHT MOMENTS: N (positive surprises)
 Quantify and prioritize:
 
 | Friction Point | Users Affected | Severity (1-10) | Fix Difficulty | Priority Score |
-|----------------|---------------|-----------------|----------------|----------------|
-| [Issue 1]      | X%            | N               | Easy/Med/Hard  | HIGH/MED/LOW   |
-| [Issue 2]      | X%            | N               | Easy/Med/Hard  | HIGH/MED/LOW   |
+| -------------- | -------------- | --------------- | -------------- | -------------- |
+| [Issue 1]      | X%             | N               | Easy/Med/Hard  | HIGH/MED/LOW   |
+| [Issue 2]      | X%             | N               | Easy/Med/Hard  | HIGH/MED/LOW   |
 
 **Priority Formula:**
 ```
@@ -257,6 +257,7 @@ TOTAL CONTEXT SWITCH LOSS                                    Z min/session
 ### Immediate Fixes (Low Effort, High Impact)
 
 1. **Giant CTA on Landing**
+
    ```html
    <button class="cta" style="min-height: 60px; min-width: 200px;">
      Primary Action
@@ -283,6 +284,7 @@ TOTAL CONTEXT SWITCH LOSS                                    Z min/session
 ### Medium-Term Improvements
 
 1. **Re-Orientation Panels**
+
    ```
    ┌─────────────────────────────────────────────┐
    │  Welcome back! Here's where you left off:  │
@@ -335,26 +337,31 @@ TOTAL CONTEXT SWITCH LOSS                                    Z min/session
 Before shipping any feature, verify:
 
 ### Cognitive Load
+
 - [ ] Can user complete with ≤4 things in working memory?
 - [ ] Are there unnecessary choices that could be defaults?
 - [ ] Is recognition used instead of recall?
 
 ### ADHD-Friendly
+
 - [ ] Can user pause and resume without losing context?
 - [ ] Are there gentle progress indicators (not anxiety-inducing)?
 - [ ] Is the interface calm (not visually noisy)?
 
 ### Fitts' Law
+
 - [ ] Are primary buttons ≥44px tall?
 - [ ] Are destructive actions away from common paths?
 - [ ] Do buttons have labels, not just icons?
 
 ### Flow Preservation
+
 - [ ] Does any action block the UI for >2 seconds?
 - [ ] Can long operations run in background?
 - [ ] Is there a clear "done" state?
 
 ### Error Recovery
+
 - [ ] Can every action be undone?
 - [ ] Are error messages actionable (not just "Error")?
 - [ ] Is auto-save enabled?

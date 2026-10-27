@@ -32,7 +32,7 @@ It is a sequence of phases with user checkpoints, not a one-shot rewrite.
 | Motion | `motion-design` (build and fluid modes; audit mode for findings only) |
 | Modern CSS/APIs (view transitions, `@property`, popover) | `modern-web-guidance` |
 | Workers, caching | `workers-best-practices` |
-| Svelte targets | `svelte-core-bestpractices` and the matching `svelte-*` skill |
+| Svelte targets | `svelte` |
 | Copy cleanup | `deslop` |
 
 ## Workflow

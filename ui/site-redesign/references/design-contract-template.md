@@ -5,6 +5,7 @@ Given verbatim to every page subagent. Fill each `<...>`; delete lines that don'
 Reference implementation: `<home route file>` + `<shell and primitive folders>`. Read them first and match them.
 
 ## Stack rules
+
 - Components: baby-ui only, installed under `<ui path>`. Install more with
   `<npx shadcn@latest add @baby-ui/<name> --yes | npx shadcn-svelte@latest add https://baby-ui.pages.dev/svelte/r/<name>.json>`.
 - Never import: `<legacy motion libs, old icon sets, Radix/vaul, legacy component folders, style-system hooks>`.
@@ -16,6 +17,7 @@ Reference implementation: `<home route file>` + `<shell and primitive folders>`.
 - The root layout renders header, footer, command menu and toaster. Pages render only `<Page>...</Page>`.
 
 ## Visual rules
+
 - One column at `Page` width. Wide data breaks out with negative margin only when it must.
 - Surfaces: `bg-background`; grouped content in `Well` or `rounded-xl border border-border`. Token shadows only.
   No gradients, glows, dot grids, noise.
@@ -27,6 +29,7 @@ Reference implementation: `<home route file>` + `<shell and primitive folders>`.
 - Copy: no em or en dashes, no buzzwords. Lowercase pixel titles end with a full stop (`projects.`).
 
 ## Motion rules
+
 - CSS only. `duration-(--duration-instant|fast|base|slow)`, `ease-(--ease-out)`, presses
   `active:scale-(--press-scale|-row|-sm|-surface)`.
 - Entrances: `rise` + `--i` on top-level blocks only. Nothing else animates on scroll except counters.
@@ -35,6 +38,7 @@ Reference implementation: `<home route file>` + `<shell and primitive folders>`.
 - Reduced motion: opacity only.
 
 ## Code rules
+
 - Comments max 2 lines, only for non-obvious facts. No file headers, no JSX narration.
 - Strict types, no `any`. Shape time-dependent data on the server (hydration).
 - Verify: `<typecheck command>` filtered to your files; screenshot
