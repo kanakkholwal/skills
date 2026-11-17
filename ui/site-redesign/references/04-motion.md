@@ -1,6 +1,6 @@
 # Phase 5: Motion
 
-Load `motion-design` (build and fluid modes). Motion is CSS only on baby-ui's contract.
+Load `pixel-sense` (motion mode: build and fluid). Motion is CSS only on baby-ui's contract.
 
 ## Contract
 

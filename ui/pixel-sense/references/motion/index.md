@@ -1,29 +1,23 @@
----
-name: motion-design
-description: Web UI motion and design-engineering polish, from deciding whether something should animate to shipping it smooth. Builds animations (CSS, @starting-style, WAAPI, Motion/Framer Motion, GSAP), reviews motion diffs, audits a codebase's motion into self-contained fix plans, finds places that should animate, diagnoses jank and dropped frames, designs Apple-style fluid gestures (springs, drag, sheets, momentum, rubber-banding, materials, typography), and names effects ("what's it called when..."). Use for any request to animate, add motion or micro-interactions, page or layout transitions, review or improve animations, fix choppy animation, or make UI feel better. Not for video rendering (Remotion, HyperFrames) or shaders.
-license: MIT (see LICENSE)
----
-
 # Motion Design
 
 One bar for every motion task: Emil Kowalski's design-engineering philosophy, Apple's fluid-interface
 principles, and library specifics for Motion and GSAP. Pick the mode, load only its reference, and
-take every value from [standards.md](references/standards.md). Never approximate a curve or duration.
+take every value from [standards.md](standards.md). Never approximate a curve or duration.
 
 ## Modes
 
-| The user wants                                                       | Mode              | Load                                                                                                                                    |
-| -------------------------------------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| Animate something, add motion, build a transition | **Build** | this file; full sequence in [build.md](references/build.md), components in [recipes.md](references/recipes.md) |
-| UI polish, component craft, "why does this feel off" | **Craft** | [design-engineering.md](references/design-engineering.md) (Emil Kowalski, complete) |
-| Review motion in a diff, PR or file                                  | **Review**        | [review.md](references/review.md) + [standards.md](references/standards.md)                                                             |
-| Audit a codebase's motion and write fix plans                        | **Audit**         | [audit.md](references/audit.md), [audit-categories.md](references/audit-categories.md), [plan-template.md](references/plan-template.md) |
-| "What could animate here?"                                           | **Opportunities** | [opportunities.md](references/opportunities.md)                                                                                         |
-| Jank, stutter, dropped frames, `will-change`                         | **Performance**   | [performance.md](references/performance.md)                                                                                             |
-| Drag, swipe, sheets, springs, momentum, materials, Apple feel        | **Fluid**         | [apple.md](references/apple.md)                                                                                                         |
-| "What's it called when..."                                           | **Name**          | [vocabulary.md](references/vocabulary.md), answer with the term only                                                                    |
-| Motion for React specifics (`AnimatePresence`, `layoutId`, variants) | **Library**       | [framer-motion.md](references/framer-motion.md)                                                                                         |
-| GSAP tweens, eases, `matchMedia`                                     | **Library**       | [gsap.md](references/gsap.md)                                                                                                           |
+| The user wants                                                       | Mode              | Load                                                                                                   |
+| -------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------ |
+| Animate something, add motion, build a transition                    | **Build**         | this file; full sequence in [build.md](build.md), components in [recipes.md](recipes.md)               |
+| UI polish, component craft, "why does this feel off"                 | **Craft**         | [design-engineering.md](design-engineering.md) (Emil Kowalski, complete)                               |
+| Review motion in a diff, PR or file                                  | **Review**        | [review.md](review.md) + [standards.md](standards.md)                                                  |
+| Audit a codebase's motion and write fix plans                        | **Audit**         | [audit.md](audit.md), [audit-categories.md](audit-categories.md), [plan-template.md](plan-template.md) |
+| "What could animate here?"                                           | **Opportunities** | [opportunities.md](opportunities.md)                                                                   |
+| Jank, stutter, dropped frames, `will-change`                         | **Performance**   | [performance.md](performance.md)                                                                       |
+| Drag, swipe, sheets, springs, momentum, materials, Apple feel        | **Fluid**         | [apple.md](apple.md)                                                                                   |
+| "What's it called when..."                                           | **Name**          | [vocabulary.md](vocabulary.md), answer with the term only                                              |
+| Motion for React specifics (`AnimatePresence`, `layoutId`, variants) | **Library**       | [framer-motion.md](framer-motion.md)                                                                   |
+| GSAP tweens, eases, `matchMedia`                                     | **Library**       | [gsap.md](gsap.md)                                                                                     |
 
 Review, Audit and Opportunities are read-only on source code. Build writes code.
 
@@ -138,4 +132,4 @@ Write the code, then at most a few lines: the gate result (tier and purpose, plu
 the ingredients (tool, properties, curve, duration or spring), and what to feel-check when feel can't be
 judged from code (2-5x slow motion, frame-by-frame in DevTools, real device for gestures).
 
-Sources and licences: [LICENSE](LICENSE).
+Sources and licences: [LICENSE](../../LICENSE).

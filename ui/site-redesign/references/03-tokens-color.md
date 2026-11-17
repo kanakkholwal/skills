@@ -1,6 +1,6 @@
 # Phase 4: Colour and tokens
 
-Load `auditing-design-systems` and use its `color-audit.mjs` for every pair below.
+Load `pixel-sense` (colour audit mode) and use its `color-audit.mjs` for every pair below.
 
 ## Model
 

@@ -194,6 +194,60 @@ Stagger group entrances; 30-80ms between items. Longer delays feel slow. Stagger
 }
 ```
 
+## UI choreography
+
+Concrete defaults for everyday product UI. Marketing and onboarding may stretch them.
+
+| Rule                            | Value                                                                                                           |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Entrances                       | `--ease-out`; on-screen moves `--ease-in-out`                                                                   |
+| Exits                           | About 20% shorter than the entrance (240ms in, ~190ms out)                                                      |
+| Dropdowns, menus                | 150-250ms                                                                                                       |
+| Popovers                        | Start at `scale(0.95)` + opacity 0, origin at the trigger; exit back toward the trigger, never shrink to centre |
+| Button press                    | `scale(0.97)` on `:active`                                                                                      |
+| List rows                       | 30ms stagger; cap total stagger near 300ms                                                                      |
+| Details that settle             | Stagger secondary content after the primary element lands                                                       |
+| Toggle knob in motion           | Stretch ~12% along the travel axis, settle back on arrival                                                      |
+| State swap                      | Overlap: the new state enters while the old one leaves; no blank frame                                          |
+| Icon swap                       | Crossfade with `scale(0.8 -> 1)` and `blur(2-4px) -> 0`                                                         |
+| Success                         | One short pulse (scale 1 -> 1.04 -> 1, or a ring) on the changed element                                        |
+| Reveals, colour changes         | Animate `clip-path` or a mask, not size                                                                         |
+| Object moving across the screen | Travel on an arc, not a straight diagonal                                                                       |
+| Drag past a boundary            | Rubber-band: resistance rising with distance, spring back on release                                            |
+| Same object in two places       | Shared element: one `layoutId` (Motion) or `view-transition-name`                                               |
+| Gesture-driven motion           | Follows the pointer 1:1, no tween; hand off to a spring on release with the gesture's velocity                  |
+| Springs                         | Not for everyday transitions; drag, flick and "alive" elements only, bounce <= 0.2                              |
+
+## Animation principles at UI scale
+
+Disney's twelve, translated. Film strength reads as wobble in an interface; keep each one small.
+
+| Principle                          | In UI                                                                    |
+| ---------------------------------- | ------------------------------------------------------------------------ |
+| Squash and stretch                 | Knob stretch ~12%, press `scale(0.97)`; never on text                    |
+| Anticipation                       | A 2-4% pull-back before a large move; skip for frequent actions          |
+| Staging                            | One thing moves at a time; dim or hold the rest                          |
+| Pose to pose                       | Define start and end states; let the curve do the inbetweens             |
+| Follow-through, overlapping action | Children settle 30-60ms after the parent                                 |
+| Slow in, slow out                  | Ease curves; `ease-out` for enter, `ease-in-out` for moves               |
+| Arcs                               | Curved paths for objects travelling across the screen                    |
+| Secondary action                   | A badge count ticks as the item lands in the cart                        |
+| Timing                             | Fast and snappy: 150-250ms for most UI                                   |
+| Exaggeration                       | Only on feedback that must be noticed (error shake 4-6px, success pulse) |
+| Solid drawing                      | Consistent light direction and depth in 3D or layered UI                 |
+| Appeal                             | Cohesion: one easing family, one duration scale, across the product      |
+
+## Laws that decide motion
+
+- **Frequency of use**: the frequency table above. The more often seen, the less it moves.
+- **Doherty threshold**: respond within 400ms; show feedback within 100ms even if work continues.
+- **Fitts's law**: animate toward the pointer's position; grow hit areas rather than visuals.
+- **Hick's law**: staggered reveals of many options do not make choice easier; reduce options.
+- **Jakob's law**: menus, sheets and toasts move the way the platform's own do.
+- **Postel's law**: accept imprecise gestures (velocity-based dismiss, generous drag thresholds).
+- **Working memory (Cowan 4±1, the update to Miller's 7±2)**: shared element transitions keep
+  the user's place so they do not have to remember it.
+
 ## Accessibility
 
 ```css

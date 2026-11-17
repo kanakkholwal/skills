@@ -1,12 +1,6 @@
----
-name: ux-design
-description: UX/UI design guidance for building, reviewing, and critiquing interfaces and frontend code, plus friction audits of user flows. Use when designing screens or components, auditing usability or accessibility (WCAG 2.2, EAA), simulating user journeys, reducing cognitive load or friction, designing ADHD-friendly or flow-preserving UX, writing microcopy, or designing forms, navigation, search, tables, dashboards, onboarding, notifications, real-time collaboration, canvas/whiteboard apps, AI/chat interfaces, i18n/RTL, voice, design systems, or barcode/QR scanning and display.
-license: MIT (see LICENSE)
----
-
 # UX Design
 
-Use this skill for four jobs: **reviewing** an interface (a screenshot, a URL, or code), **building** UI, **advising** on a design decision, and **friction-auditing** a flow. You know the general UX canon already. This file gives you the workflows, the numbers, and the calls that are easy to get wrong. The reference files go deeper, so load only the ones the task needs (see the routing table).
+Use this guide for four jobs: **reviewing** an interface (a screenshot, a URL, or code), **building** UI, **advising** on a design decision, and **friction-auditing** a flow. You know the general UX canon already. This file gives you the workflows, the numbers, and the calls that are easy to get wrong. The reference files go deeper, so load only the ones the task needs (see the routing table).
 
 ## Philosophy
 
@@ -32,7 +26,7 @@ Use this skill for four jobs: **reviewing** an interface (a screenshot, a URL, o
 
 ## Workflow: Friction audit of a flow
 
-Use when the question is about a journey (sign-up, checkout, a daily task) rather than a screen: "where do users stall", "reduce cognitive load", "make this ADHD-friendly". Follow [references/friction-audit.md](references/friction-audit.md): map the paths, simulate personas against them, score each friction point, and rank fixes by `(users affected x severity) / effort`.
+Use when the question is about a journey (sign-up, checkout, a daily task) rather than a screen: "where do users stall", "reduce cognitive load", "make this ADHD-friendly". Follow [references/friction-audit.md](friction-audit.md): map the paths, simulate personas against them, score each friction point, and rank fixes by `(users affected x severity) / effort`.
 
 ## Workflow: Building UI
 
@@ -108,38 +102,38 @@ System status (maintenance, connectivity)         → Persistent banner
 
 Load the file when the task touches its topic. Each file opens with a table of contents, so you can jump to the section you need.
 
-| Load when the task involves…                                                       | File                                                                                         |
-| ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Heuristic evaluation, Nielsen's 10, Gestalt                                        | [references/01-core-principles.md](references/01-core-principles.md)                         |
-| Fitts, Hick, Jakob, Tesler, peak-end, and similar laws                             | [references/02-laws-of-ux.md](references/02-laws-of-ux.md)                                   |
-| WCAG 2.2 criteria, ARIA, EAA / legal compliance                                    | [references/03-accessibility.md](references/03-accessibility.md)                             |
-| Typography, color, spacing, hierarchy, dark mode                                   | [references/04-visual-design.md](references/04-visual-design.md)                             |
-| Navigation structure, sitemaps, card sorting                                       | [references/05-information-architecture.md](references/05-information-architecture.md)       |
-| Journey simulation, friction scoring, cognitive load, ADHD-friendly patterns, flow | [references/friction-audit.md](references/friction-audit.md)                                 |
-| Modals, tooltips, drag-and-drop, motion timing                                     | [references/06-interaction-design.md](references/06-interaction-design.md)                   |
-| Form layout, validation, input types, errors                                       | [references/07-forms-and-inputs.md](references/07-forms-and-inputs.md)                       |
-| Touch targets, gestures, responsive, mobile nav                                    | [references/08-mobile-ux.md](references/08-mobile-ux.md)                                     |
-| Microcopy, error messages, voice and tone                                          | [references/09-ux-writing.md](references/09-ux-writing.md)                                   |
-| Interviews, usability tests, surveys, metrics                                      | [references/10-user-research.md](references/10-user-research.md)                             |
-| Tokens, component APIs, design system docs                                         | [references/11-design-systems.md](references/11-design-systems.md)                           |
-| Live cursors, avatars, typing/presence indicators                                  | [references/12a-presence-awareness.md](references/12a-presence-awareness.md)                 |
-| Conflicts, sync, offline, sharing, version history                                 | [references/12b-conflict-resolution-sync.md](references/12b-conflict-resolution-sync.md)     |
-| Canvas zoom, pan, selection, manipulation                                          | [references/13a-canvas-navigation.md](references/13a-canvas-navigation.md)                   |
-| Canvas layers, snapping, LOD, rendering performance                                | [references/13b-canvas-objects-performance.md](references/13b-canvas-objects-performance.md) |
-| Chat UI, copilots, agents, generative UI                                           | [references/14-ai-ux-patterns.md](references/14-ai-ux-patterns.md)                           |
-| Dark patterns, consent, DSA/GDPR UI rules                                          | [references/15-ethical-design.md](references/15-ethical-design.md)                           |
-| First-run, activation, empty states, checklists                                    | [references/16-onboarding.md](references/16-onboarding.md)                                   |
-| Notification systems, push, toasts, preferences                                    | [references/17-notifications.md](references/17-notifications.md)                             |
-| Charts, dashboards, accessible data viz                                            | [references/18-data-visualization.md](references/18-data-visualization.md)                   |
-| Search, autocomplete, filters, zero results                                        | [references/19-search-ux.md](references/19-search-ux.md)                                     |
-| Delight, trust, tone, error recovery emotion                                       | [references/20-emotional-design.md](references/20-emotional-design.md)                       |
-| Tables, sorting, pagination, bulk actions                                          | [references/21-data-tables.md](references/21-data-tables.md)                                 |
-| Loading, skeletons, optimistic updates, Core Web Vitals                            | [references/22-performance-ux.md](references/22-performance-ux.md)                           |
-| Localization, RTL, `Intl`, plurals, text expansion                                 | [references/23-internationalization.md](references/23-internationalization.md)               |
-| Voice, multimodal, cross-device input                                              | [references/24-voice-and-multimodal.md](references/24-voice-and-multimodal.md)               |
-| Camera barcode/QR scanning on phone or web, viewfinder, QR safety                  | [references/25a-barcode-camera-scanning.md](references/25a-barcode-camera-scanning.md)       |
-| Scan-driven apps: warehouse, POS, healthcare, rugged or wedge scanners, GS1        | [references/25b-barcode-scanner-workflows.md](references/25b-barcode-scanner-workflows.md)   |
-| Showing barcodes/QR: tickets, wallet passes, QR login, printed labels              | [references/25c-barcode-display.md](references/25c-barcode-display.md)                       |
+| Load when the task involves…                                                       | File                                                                              |
+| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Heuristic evaluation, Nielsen's 10, Gestalt                                        | [references/01-core-principles.md](01-core-principles.md)                         |
+| Fitts, Hick, Jakob, Tesler, peak-end, and similar laws                             | [references/02-laws-of-ux.md](02-laws-of-ux.md)                                   |
+| WCAG 2.2 criteria, ARIA, EAA / legal compliance                                    | [references/03-accessibility.md](03-accessibility.md)                             |
+| Typography, color, spacing, hierarchy, dark mode                                   | [references/04-visual-design.md](04-visual-design.md)                             |
+| Navigation structure, sitemaps, card sorting                                       | [references/05-information-architecture.md](05-information-architecture.md)       |
+| Journey simulation, friction scoring, cognitive load, ADHD-friendly patterns, flow | [references/friction-audit.md](friction-audit.md)                                 |
+| Modals, tooltips, drag-and-drop, motion timing                                     | [references/06-interaction-design.md](06-interaction-design.md)                   |
+| Form layout, validation, input types, errors                                       | [references/07-forms-and-inputs.md](07-forms-and-inputs.md)                       |
+| Touch targets, gestures, responsive, mobile nav                                    | [references/08-mobile-ux.md](08-mobile-ux.md)                                     |
+| Microcopy, error messages, voice and tone                                          | [references/09-ux-writing.md](09-ux-writing.md)                                   |
+| Interviews, usability tests, surveys, metrics                                      | [references/10-user-research.md](10-user-research.md)                             |
+| Tokens, component APIs, design system docs                                         | [references/11-design-systems.md](11-design-systems.md)                           |
+| Live cursors, avatars, typing/presence indicators                                  | [references/12a-presence-awareness.md](12a-presence-awareness.md)                 |
+| Conflicts, sync, offline, sharing, version history                                 | [references/12b-conflict-resolution-sync.md](12b-conflict-resolution-sync.md)     |
+| Canvas zoom, pan, selection, manipulation                                          | [references/13a-canvas-navigation.md](13a-canvas-navigation.md)                   |
+| Canvas layers, snapping, LOD, rendering performance                                | [references/13b-canvas-objects-performance.md](13b-canvas-objects-performance.md) |
+| Chat UI, copilots, agents, generative UI                                           | [references/14-ai-ux-patterns.md](14-ai-ux-patterns.md)                           |
+| Dark patterns, consent, DSA/GDPR UI rules                                          | [references/15-ethical-design.md](15-ethical-design.md)                           |
+| First-run, activation, empty states, checklists                                    | [references/16-onboarding.md](16-onboarding.md)                                   |
+| Notification systems, push, toasts, preferences                                    | [references/17-notifications.md](17-notifications.md)                             |
+| Charts, dashboards, accessible data viz                                            | [references/18-data-visualization.md](18-data-visualization.md)                   |
+| Search, autocomplete, filters, zero results                                        | [references/19-search-ux.md](19-search-ux.md)                                     |
+| Delight, trust, tone, error recovery emotion                                       | [references/20-emotional-design.md](20-emotional-design.md)                       |
+| Tables, sorting, pagination, bulk actions                                          | [references/21-data-tables.md](21-data-tables.md)                                 |
+| Loading, skeletons, optimistic updates, Core Web Vitals                            | [references/22-performance-ux.md](22-performance-ux.md)                           |
+| Localization, RTL, `Intl`, plurals, text expansion                                 | [references/23-internationalization.md](23-internationalization.md)               |
+| Voice, multimodal, cross-device input                                              | [references/24-voice-and-multimodal.md](24-voice-and-multimodal.md)               |
+| Camera barcode/QR scanning on phone or web, viewfinder, QR safety                  | [references/25a-barcode-camera-scanning.md](25a-barcode-camera-scanning.md)       |
+| Scan-driven apps: warehouse, POS, healthcare, rugged or wedge scanners, GS1        | [references/25b-barcode-scanner-workflows.md](25b-barcode-scanner-workflows.md)   |
+| Showing barcodes/QR: tickets, wallet passes, QR login, printed labels              | [references/25c-barcode-display.md](25c-barcode-display.md)                       |
 
 ## Reference values
 
@@ -168,25 +162,25 @@ Numbers like conversion rates, NPS targets, and completion percentages depend on
 
 Each one points to the reference file that covers the fix.
 
-- Dark patterns, confirmshaming, asymmetric consent → [15](references/15-ethical-design.md)
-- Hidden desktop navigation, no sense of location → [05](references/05-information-architecture.md)
-- Infinite scroll without position or a footer → [21](references/21-data-tables.md)
-- Autoplaying media, color-only signals, invisible focus → [03](references/03-accessibility.md)
-- Disabled buttons with no explanation, modal overuse → [06](references/06-interaction-design.md)
-- Walls of text, no hierarchy → [04](references/04-visual-design.md)
-- Tiny touch targets → [08](references/08-mobile-ux.md)
-- Missing loading, empty, or error states → [22](references/22-performance-ux.md)
-- Silent sync failures, no offline indication → [12b](references/12b-conflict-resolution-sync.md)
-- Cursor overload, no presence → [12a](references/12a-presence-awareness.md)
-- Screen-center zoom → [13a](references/13a-canvas-navigation.md)
-- Hidden AI, AI changes applied without consent or undo → [14](references/14-ai-ux-patterns.md)
-- Mandatory long tours → [16](references/16-onboarding.md)
-- Notification carpet bombing, push permission on first visit → [17](references/17-notifications.md)
-- Hardcoded strings, fixed widths, LTR-only layout → [23](references/23-internationalization.md)
-- Voice-only flows, hidden mic, no recognition feedback → [24](references/24-voice-and-multimodal.md)
-- Scan-only flows with no manual entry, silent scan failures → [25a](references/25a-barcode-camera-scanning.md) / [25b](references/25b-barcode-scanner-workflows.md)
+- Dark patterns, confirmshaming, asymmetric consent → [15](15-ethical-design.md)
+- Hidden desktop navigation, no sense of location → [05](05-information-architecture.md)
+- Infinite scroll without position or a footer → [21](21-data-tables.md)
+- Autoplaying media, color-only signals, invisible focus → [03](03-accessibility.md)
+- Disabled buttons with no explanation, modal overuse → [06](06-interaction-design.md)
+- Walls of text, no hierarchy → [04](04-visual-design.md)
+- Tiny touch targets → [08](08-mobile-ux.md)
+- Missing loading, empty, or error states → [22](22-performance-ux.md)
+- Silent sync failures, no offline indication → [12b](12b-conflict-resolution-sync.md)
+- Cursor overload, no presence → [12a](12a-presence-awareness.md)
+- Screen-center zoom → [13a](13a-canvas-navigation.md)
+- Hidden AI, AI changes applied without consent or undo → [14](14-ai-ux-patterns.md)
+- Mandatory long tours → [16](16-onboarding.md)
+- Notification carpet bombing, push permission on first visit → [17](17-notifications.md)
+- Hardcoded strings, fixed widths, LTR-only layout → [23](23-internationalization.md)
+- Voice-only flows, hidden mic, no recognition feedback → [24](24-voice-and-multimodal.md)
+- Scan-only flows with no manual entry, silent scan failures → [25a](25a-barcode-camera-scanning.md) / [25b](25b-barcode-scanner-workflows.md)
 
-For motion values beyond the interaction basics (curves, springs, gestures), use the `motion-design` skill. For colour tokens and contrast measurement, use `auditing-design-systems`.
+For motion values beyond the interaction basics (curves, springs, gestures), see [../motion/index.md](../motion/index.md). For colour tokens and contrast measurement, see [../color-system/index.md](../color-system/index.md).
 
 ## Sources
 
