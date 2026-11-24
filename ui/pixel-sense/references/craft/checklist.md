@@ -5,6 +5,7 @@ Walk it before calling any UI done. Each line links to where the rule is explain
 ## Mandatory rules and laws
 
 - [ ] Every rule in [rules.md](rules.md) applied (typography, animation, transitions); conflicts were asked, not guessed
+- [ ] All 20 principles in [../motion/ux-principles.md](../motion/ux-principles.md) checked against the motion on screen, and the ones that apply are met
 - [ ] Every principle in [../motion/principles.md](../motion/principles.md) that applies to the motion on screen is met
 - [ ] Every law in [laws.md](laws.md) that touches this screen has its build rule met
 
@@ -46,7 +47,7 @@ Walk it before calling any UI done. Each line links to where the rule is explain
 ## Motion
 
 - [ ] Every animation has a named purpose and passes the frequency gate ([../motion/index.md](../motion/index.md))
-- [ ] Enter ease-out, exits ~20% shorter, popovers from the trigger at 0.95 ([../motion/standards.md](../motion/standards.md#ui-choreography))
+- [ ] Enter ease-out, exits one half to one third of the entry (ease-out), popovers from the trigger at 0.95 ([../motion/standards.md](../motion/standards.md#ui-choreography))
 - [ ] `prefers-reduced-motion` handled; hover motion gated to fine pointers
 
 ## Slop

@@ -78,7 +78,7 @@ straight diagonal.
 
 **Means:** how long a motion takes sets its feel: fast is snappy, slow is heavy.
 **Example:** dropdowns open in 150-250ms; a button press settles in 100-160ms; a modal in 200-300ms.
-**Do:** keep UI under about 300ms, exits about 20% shorter than entrances.
+**Do:** keep UI under about 300ms, exits one half to one third of the entry time.
 **Don't:** exceed 300ms for everyday UI, or make people wait for an animation to finish.
 
 ## Exaggeration

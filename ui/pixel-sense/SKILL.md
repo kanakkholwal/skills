@@ -35,6 +35,10 @@ Review, Audit, Deslop and Friction are read-only until the user approves the fix
 
 ## Mandatory
 
+**Any time motion, a transition or an animation is involved (building, auditing or fixing it),
+[motion/ux-principles.md](references/motion/ux-principles.md) applies in full: check all 20
+principles and apply every one that fits.**
+
 Every build, restyle and review follows **all** of [craft/rules.md](references/craft/rules.md) (typography,
 animation, transitions), [motion/principles.md](references/motion/principles.md) (every motion principle
 and technique) and every law in [craft/laws.md](references/craft/laws.md) that touches the
@@ -93,7 +97,7 @@ button:active { scale: 0.97; }
 .bg { background: linear-gradient(in oklch, var(--a), var(--b)); }
 ```
 
-Dropdowns 150-250ms, exits ~20% shorter than entrances, list stagger 30ms, no bounce on everyday
+Dropdowns 150-250ms, exits one half to one third of the entry, list stagger 30ms, no bounce on everyday
 UI. Body text 4.5:1, UI boundaries 3:1, targets 24px minimum and 44px on touch.
 
 ## Scripts

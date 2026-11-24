@@ -264,7 +264,7 @@ it eases back on release.
 
 **Means:** leaving should be quicker than arriving; the user's attention has already moved on.
 **Example:** a menu that opens in 240ms closes in about 190ms.
-**Do:** exits about 20% shorter than entrances, with a reduced-motion variant for both.
+**Do:** exits one half to one third of the entry time (250ms in, 100-150ms out), ease-out, with a reduced-motion variant for both.
 **Don't:** make exits slower than entrances.
 
 ## When rules clash

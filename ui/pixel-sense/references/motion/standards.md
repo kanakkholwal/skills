@@ -201,7 +201,7 @@ Concrete defaults for everyday product UI. Marketing and onboarding may stretch 
 | Rule                            | Value                                                                                                           |
 | ------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Entrances                       | `--ease-out`; on-screen moves `--ease-in-out`                                                                   |
-| Exits                           | About 20% shorter than the entrance (240ms in, ~190ms out)                                                      |
+| Exits                           | One half to one third of the entry time, ease-out (250ms in, 100-150ms out)                                     |
 | Dropdowns, menus                | 150-250ms                                                                                                       |
 | Popovers                        | Start at `scale(0.95)` + opacity 0, origin at the trigger; exit back toward the trigger, never shrink to centre |
 | Button press                    | `scale(0.97)` on `:active`                                                                                      |
