@@ -216,6 +216,11 @@ Concrete defaults for everyday product UI. Marketing and onboarding may stretch 
 | Drag past a boundary            | Rubber-band: resistance rising with distance, spring back on release                                            |
 | Same object in two places       | Shared element: one `layoutId` (Motion) or `view-transition-name`                                               |
 | Gesture-driven motion           | Follows the pointer 1:1, no tween; hand off to a spring on release with the gesture's velocity                  |
+| Wrong input                     | Colour change plus a 4-6px horizontal shake, 300-400ms, once                                                    |
+| Step changes (stepper, wizard)  | Slide in the direction of travel, never a plain fade; RTL flips                                                 |
+| Height to `auto`                | `interpolate-size: allow-keywords` on `:root`, then transition `height`                                         |
+| Theme switch                    | Disable all transitions for the swap, restore after two frames                                                  |
+| Tooltips                        | Delay only the first; peers open instantly with no animation                                                    |
 | Springs                         | Not for everyday transitions; drag, flick and "alive" elements only, bounce <= 0.2                              |
 
 ## Animation principles at UI scale

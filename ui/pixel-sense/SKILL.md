@@ -23,7 +23,8 @@ Script and reference paths are relative to this skill's folder.
 | Where users stall, cognitive load, ADHD-friendly | **Friction** | [ux/friction-audit.md](references/ux/friction-audit.md) |
 | Pick brand colours, accent, palette, dark theme | **Colour** | [craft/color.md](references/craft/color.md) |
 | Measure tokens, contrast, colour blindness, gamut | **Colour audit** | [color-system/index.md](references/color-system/index.md) |
-| Fonts, scale, tracking, numbers, wrapping | **Type** | [craft/typography.md](references/craft/typography.md) |
+| Fonts, scale, tracking, numbers, wrapping | **Type** | [craft/rules.md](references/craft/rules.md), [craft/typography.md](references/craft/typography.md) |
+| Which UX law applies, and what to build for it | **Laws** | [craft/laws.md](references/craft/laws.md) |
 | Spacing, alignment, radius, viewport, hit areas | **Layout** | [craft/layout.md](references/craft/layout.md) |
 | Borders, shadows, masks, images, UI states | **Surfaces** | [craft/surfaces.md](references/craft/surfaces.md) |
 | Animate, review motion, jank, gestures, "what's it called" | **Motion** | [motion/index.md](references/motion/index.md) |
@@ -32,13 +33,23 @@ Script and reference paths are relative to this skill's folder.
 
 Review, Audit, Deslop and Friction are read-only until the user approves the fixes.
 
+## Mandatory
+
+Every build, restyle and review follows **all** of [craft/rules.md](references/craft/rules.md) (typography,
+animation, transitions) and every law in [craft/laws.md](references/craft/laws.md) that touches the
+screen, plus [craft/checklist.md](references/craft/checklist.md). These are not suggestions and
+not "when it fits". Skip one only when the user says so for that case or the repo's own design
+system decides it. When two rules conflict, or a rule conflicts with the repo, **stop and ask the
+user** with 2-3 concrete options and your pick; never resolve it silently. Known conflicts:
+[rules.md#conflicts](references/craft/rules.md#conflicts).
+
 ## Hard rules
 
 1. **Owner decisions win.** Read `DESIGN.md`, tokens, brand assets and notes first. Match the
    existing design system even where your taste differs.
 2. **The user picks the direction.** For new UI with no set look, offer 3-6 options and wait.
    Where a direction exists, follow it and offer extensions as optional suggestions.
-3. **[slop.md](references/craft/slop.md) beats everything**, including catalogue rows and older
+3. **[slop.md](references/craft/slop.md) beats catalogue rows and older references**, including catalogue rows and older
    references (the "2026 trends" in ux/04 included).
 4. **One of each**: one accent, one spacing scale, one radius scale, one icon set, one texture.
 5. **Measure, never adjective.** Contrast ratios, scan hits, pixel values, screenshots.
@@ -57,7 +68,7 @@ Review, Audit, Deslop and Friction are read-only until the user approves the fix
 5. **Compose** with the craft rules: typography, layout, surfaces.
 6. **States** for every control and async surface ([surfaces.md](references/craft/surfaces.md)).
 7. **Motion** only after the frequency and purpose gate ([motion/index.md](references/motion/index.md)).
-8. **Verify**: `slop-scan.mjs`, `color-audit.mjs`, screenshots at 375 and 1440px in light and
+8. **Verify**: [rules.md](references/craft/rules.md) line by line, `slop-scan.mjs`, `color-audit.mjs`, screenshots at 375 and 1440px in light and
    dark, then [checklist.md](references/craft/checklist.md).
 
 ## Defaults

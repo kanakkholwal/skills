@@ -2,6 +2,11 @@
 
 Walk it before calling any UI done. Each line links to where the rule is explained.
 
+## Mandatory rules and laws
+
+- [ ] Every row of [rules.md](rules.md) applied (typography, animation, transitions); conflicts were asked, not guessed
+- [ ] Every law in [laws.md](laws.md) that touches this screen has its build rule met
+
 ## System
 
 - [ ] Tokens exist for colour, type sizes, spacing, radius, shadow, duration, easing; no raw values in components
