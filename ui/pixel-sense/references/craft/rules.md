@@ -1,38 +1,22 @@
 # Mandatory rules
 
-Every UI built, restyled or reviewed with this skill follows every rule here, every time. They are
-mechanical, so there is no "when it fits". A rule may be skipped only if the user says so for
-that case, or if the repo's own design system already decides it (then follow the repo).
+Every UI built, restyled or reviewed with this skill follows **every** rule here, every time. Each
+rule is a heading with what it means, a UI example, and do's and don'ts. A rule is skipped only
+if the user says so for that case, or the repo's own design system already decides it.
 
-If two rules (or a rule and the repo) pull opposite ways, stop and ask the user, offering the
-options and what each costs. Known conflicts are in [Conflicts](#conflicts). Never resolve one
-silently.
+Values and curves for motion live in [../motion/standards.md](../motion/standards.md#ui-choreography).
 
 ## Contents
 
-- [Typography](#typography)
-- [Animation and transitions](#animation-and-transitions)
-- [Surfaces and layout](#surfaces-and-layout)
-- [Conflicts](#conflicts)
+- Typography: [Reserve bold width](#reserve-bold-width), [Optical text centring](#optical-text-centring), [Underline offset](#underline-offset), [Sub and sup](#sub-and-sup), [Fluid headlines](#fluid-headlines), [Small caps for acronyms](#small-caps-for-acronyms), [Curly quotes](#curly-quotes), [Middle truncation](#middle-truncation), [Hyphenation](#hyphenation), [Line clamp](#line-clamp), [Tabular figures](#tabular-figures), [Text wrapping](#text-wrapping)
+- Animation: [No scale from zero](#no-scale-from-zero), [Press feedback](#press-feedback), [Shake on wrong input](#shake-on-wrong-input), [Directional step transitions](#directional-step-transitions), [Animate height to auto](#animate-height-to-auto), [Transform over layout properties](#transform-over-layout-properties), [Theme switch without flash](#theme-switch-without-flash), [First tooltip delay only](#first-tooltip-delay-only), [Springs for flicks](#springs-for-flicks), [Rubber-band edges](#rubber-band-edges), [Shorter exits](#shorter-exits)
+- [When rules clash](#when-rules-clash)
 
-## Typography
+## Reserve bold width
 
-| Rule                                   | Do                                                                                                            |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| Reserve bold width on tabs and toggles | A hidden bold copy sets the width so selecting a tab does not shift its row (below)                           |
-| Centre text optically in buttons       | Fonts leave room for descenders, so label text sits low. `text-box: trim-both cap alphabetic`                 |
-| Underlines clear descenders            | Default underlines are chopped by g, y, p. `text-underline-offset: 0.15em; text-decoration-thickness: 0.08em` |
-| Fix `sub` and `sup` spacing            | They stretch line boxes unevenly: `sub, sup { line-height: 0 }`                                               |
-| Fluid headlines                        | `clamp()` instead of a size jump at each breakpoint                                                           |
-| Acronyms in small caps                 | All-caps acronyms shout: `font-variant-caps: all-small-caps` (or `c2sc` plus `smcp`) on the acronym span      |
-| Curly quotes and apostrophes           | Straight quotes read mechanical: " " ' ' ’, never `"` or `'` in visible copy                                  |
-| Truncate filenames in the middle       | The extension carries the meaning; keep start and end: `report-q3-fina…v2.pdf` (below)                        |
-| Hyphenate narrow columns               | Huge word gaps in narrow columns: `hyphens: auto` with a correct `lang` attribute                             |
-| Clamp long titles in cards             | Equal card heights: `line-clamp: 2` (`-webkit-line-clamp` fallback)                                           |
-| Tabular figures                        | `font-variant-numeric: tabular-nums` on any number that updates or aligns                                     |
-| Balanced headlines, pretty paragraphs  | `text-wrap: balance` and `text-wrap: pretty`                                                                  |
-
-Reserve bold width (no shift when a tab becomes active):
+**Means:** when a tab turns bold on selection, its text gets wider and pushes its neighbours.
+**Example:** a tab row where clicking "Billing" makes it bold and shifts "Team" and "Security" a few
+pixels sideways.
 
 ```css
 .tab {
@@ -52,8 +36,59 @@ Reserve bold width (no shift when a tab becomes active):
 }
 ```
 
-Middle truncation has no native CSS. Use two spans, the head shrinks with an ellipsis and the tail
-never does:
+**Do:** hold the width of the bold state with a hidden bold copy of the label.
+**Don't:** change weight on select with no reserved width.
+
+## Optical text centring
+
+**Means:** a font's line box includes room for descenders, so text in a button sits slightly low.
+**Example:** a "Save" button whose label looks pushed toward the bottom edge even though the padding
+is equal.
+**Do:** `text-box: trim-both cap alphabetic` on the label, then equal padding.
+**Don't:** nudge each button by hand with random `padding-top` values.
+
+## Underline offset
+
+**Means:** the default underline sits tight to the baseline, so letters with descenders (g, y, p)
+cut gaps in it.
+**Example:** a link reading "typography guide" with the underline chopped at every g, y and p.
+**Do:** `text-underline-offset: 0.15em; text-decoration-thickness: 0.08em`.
+**Don't:** leave browser-default underlines on body links.
+
+## Sub and sup
+
+**Means:** `<sub>` and `<sup>` push their line box taller, so rows containing them get uneven spacing.
+**Example:** a chemistry table where the row with H<sub>2</sub>O is taller than the others.
+**Do:** `sub, sup { line-height: 0 }`.
+**Don't:** use them with the default styles in dense rows.
+
+## Fluid headlines
+
+**Means:** a headline size that scales smoothly with the viewport instead of jumping at breakpoints.
+**Example:** a hero title that is 40px at 400px wide and 72px at 1280px, growing in between.
+**Do:** `font-size: clamp(2.5rem, 1.5rem + 4vw, 4.5rem)`, with `rem` in the middle term so zoom still
+works.
+**Don't:** set a fixed size per breakpoint, or use `vw` alone (breaks user zoom).
+
+## Small caps for acronyms
+
+**Means:** all-caps acronyms in running text look loud; small caps keep the shape at body height.
+**Example:** "The NASA and WHO guidelines" in a paragraph, with NASA and WHO in small caps.
+**Do:** `font-variant-caps: all-small-caps` on an `<abbr>` or span (use a font that has real small
+caps).
+**Don't:** use all caps for labels and subtitles; those stay in sentence case.
+
+## Curly quotes
+
+**Means:** typographic quotes and apostrophes look set; straight ones look typed.
+**Example:** "We’re live" with a curly apostrophe, and “quoted text”, in a hero or testimonial.
+**Do:** use ’ “ ” ‘ in all visible copy (and `…`, not three periods).
+**Don't:** leave `'` and `"` in rendered text.
+
+## Middle truncation
+
+**Means:** cut the middle of a long filename so the start and the extension both stay visible.
+**Example:** `annual-report-final-draft-v2.pdf` shown as `annual-report-fi…-v2.pdf` in a file list.
 
 ```html
 <span class="name"><span class="head">annual-report-final-draft</span><span class="tail">-v2.pdf</span></span>
@@ -75,61 +110,168 @@ never does:
 }
 ```
 
-Keep the full name in `title` and the accessible name.
+**Do:** split at the extension (or last few characters) and keep the full name in `title` and the
+accessible name.
+**Don't:** truncate at the end; the extension is the part that matters.
 
-## Animation and transitions
+## Hyphenation
 
-| Rule                                                      | Do                                                                                                                                                                                   |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Never scale from zero                                     | Enter from `scale(0.97)` (popovers 0.95) plus opacity 0                                                                                                                              |
-| Press feedback                                            | `scale(0.97)` on `:active`, 100-160ms ease-out, on every pressable element                                                                                                           |
-| Wrong input shakes                                        | A wrong password or invalid field: colour change and a 4-6px horizontal shake, 300-400ms, no repeat                                                                                  |
-| Steppers slide, not fade                                  | New step enters from the direction of travel (next from the right, back from the left); old step exits the opposite way. RTL flips                                                   |
-| Animate height auto                                       | `:root { interpolate-size: allow-keywords }` then transition `height` to `auto` (accordions, disclosures). Fall back to the `grid-template-rows: 0fr -> 1fr` trick where unsupported |
-| Never animate `top`, `left`, `width`, `height` for motion | The browser repaints every frame. Animate `transform` and `opacity` (height only for accordions, via `interpolate-size`)                                                             |
-| Switching themes                                          | Disable transitions for the swap, then restore (below)                                                                                                                               |
-| Tooltips                                                  | Delay only the first one (about 300-500ms); once one is open, neighbours open instantly with no animation                                                                            |
-| Flicks use springs                                        | A fixed-duration tween makes a flick feel mechanical; a spring keeps the release velocity                                                                                            |
-| Carousel and list edges                                   | Dragging past the end adds rubber-band resistance, then springs back                                                                                                                 |
-| Exits                                                     | About 20% shorter than the entrance; reduced-motion variant ships with every animation                                                                                               |
+**Means:** in a narrow column, long words leave huge gaps; hyphenation lets the browser split them.
+**Example:** a three-column article where one line reads "Un- believably long".
+**Do:** `hyphens: auto` on body text, with a correct `lang` on the element or page.
+**Don't:** hyphenate headlines, names or code; use `hyphens: none` there.
 
-Theme switch without a flash of transitions:
+## Line clamp
+
+**Means:** cap a block to a fixed number of lines with an ellipsis so cards stay equal height.
+**Example:** blog cards whose titles run from one to five lines, making the grid ragged.
+**Do:** `line-clamp: 2` (with `-webkit-line-clamp` and `display: -webkit-box` as the fallback) in
+lists and cards; full text on the detail view.
+**Don't:** clamp content people must read in full.
+
+## Tabular figures
+
+**Means:** digits of equal width, so columns align and changing numbers do not jitter.
+**Example:** a pricing table, a timer ticking 1:11 to 1:12, a stats row.
+**Do:** `font-variant-numeric: tabular-nums` on anything that updates or aligns, and right-align
+numeric columns.
+**Don't:** use proportional figures where numbers change or compare.
+
+## Text wrapping
+
+**Means:** balance short blocks and avoid a single orphaned word on the last line.
+**Example:** a headline wrapping as "Invoices your accountant can / import" versus a balanced split.
+**Do:** `text-wrap: balance` on headlines, `text-wrap: pretty` on paragraphs.
+**Don't:** hard-break headlines with `<br>` at one viewport width.
+
+## No scale from zero
+
+**Means:** nothing in the real world appears from nothing; elements start slightly small, not at 0.
+**Example:** a menu that opens from `scale(0.97)` and opacity 0, not from a dot.
+**Do:** start at `scale(0.97)` (popovers 0.95) plus `opacity: 0`.
+**Don't:** use `scale(0)`.
+
+## Press feedback
+
+**Means:** a pressed control gives immediate physical feedback.
+**Example:** a "Pay now" button that shrinks to 97% while held and springs back on release.
+
+```css
+button {
+	transition: scale 140ms var(--ease-out);
+}
+button:active {
+	scale: 0.97;
+}
+```
+
+**Do:** apply to every pressable element, 100-160ms, ease-out.
+**Don't:** use a larger scale than 0.95, or animate layout.
+
+## Shake on wrong input
+
+**Means:** a wrong password turns the field red and shakes it so the failure cannot be missed.
+**Example:** after "Wrong password", the field shakes 4-6px for about 350ms, once, and gets an error
+message below it.
+**Do:** colour change plus a short horizontal shake plus a text message; honour reduced motion
+(colour and text only).
+**Don't:** rely on colour alone, repeat the shake, or shake on every keystroke.
+
+## Directional step transitions
+
+**Means:** moving between steps should show direction, so people keep their place.
+**Example:** in a three-step signup, Next slides the new step in from the right and the old one out
+to the left; Back reverses it.
+**Do:** slide in the direction of travel; flip in RTL; reduced motion becomes a short fade.
+**Don't:** crossfade steps in place, or slide the same way for Next and Back.
+
+## Animate height to auto
+
+**Means:** `height: auto` could not be transitioned before; `interpolate-size` fixes it.
+**Example:** an FAQ accordion that opens smoothly to the height of its answer.
+
+```css
+:root {
+	interpolate-size: allow-keywords;
+}
+.panel {
+	height: 0;
+	overflow: clip;
+	transition: height 220ms var(--ease-out);
+}
+.panel[data-open] {
+	height: auto;
+}
+```
+
+**Do:** use it for accordions and disclosures; fall back to `grid-template-rows: 0fr` to `1fr`
+where unsupported.
+**Don't:** animate `height` with fixed pixel guesses, or for anything but accordions.
+
+## Transform over layout properties
+
+**Means:** animating `top` or `left` forces the browser to re-layout and repaint every frame;
+`transform` runs on the compositor.
+**Example:** a sliding drawer moved with `translateX` stays smooth under load; the same drawer
+moved with `left` stutters.
+**Do:** move with `transform` and fade with `opacity`.
+**Don't:** animate `top`, `left`, `right`, `bottom`, `width`, `margin` or `padding` for motion.
+
+## Theme switch without flash
+
+**Means:** changing theme tokens triggers every transition at once, which looks glitchy.
+**Example:** clicking the dark-mode toggle makes cards, text and borders all fade at different speeds.
 
 ```js
 const style = document.createElement("style");
 style.textContent = "*,*::before,*::after{transition:none!important}";
 document.head.append(style);
 document.documentElement.dataset.theme = next;
-getComputedStyle(document.documentElement).opacity; // flush
+getComputedStyle(document.documentElement).opacity; // flush styles
 requestAnimationFrame(() => requestAnimationFrame(() => style.remove()));
 ```
 
-(Or a View Transition when the crossfade is wanted: `document.startViewTransition(() => setTheme(next))`.)
+**Do:** disable transitions for the swap, then restore them; or use one View Transition.
+**Don't:** let per-element transitions run on a global token change.
 
-Values and curves live in [../motion/standards.md](../motion/standards.md#ui-choreography).
+## First tooltip delay only
 
-## Surfaces and layout
+**Means:** the first tooltip waits so it does not flash on mouse-through; once one is open, the
+next opens at once.
+**Example:** hovering across a toolbar: the first icon shows its label after about 400ms, the rest
+show instantly with no animation.
+**Do:** delay the first, skip delay and animation for peers within a short grace period.
+**Don't:** delay every tooltip, or open tooltips on touch.
 
-The craft files hold these; they are mandatory too: concentric radii, alpha borders, optical
-alignment, `dvh`, safe areas, hit areas of 24px (44px touch), OKLCH colour with one accent, every
-state shipped. See [checklist.md](checklist.md).
+## Springs for flicks
 
-## Conflicts
+**Means:** a fixed-duration tween ignores how fast the user flicked; a spring carries the release
+velocity.
+**Example:** a bottom sheet flicked down continues at that speed to dismiss; a gentle drag settles
+back.
+**Do:** use a spring (bounce 0 to 0.2) for drag release and flicks, passing in the gesture velocity.
+**Don't:** use a fixed 300ms ease for a gesture release, or high bounce on everyday UI.
 
-Ask the user before choosing. Offer the options below, with the cost of each.
+## Rubber-band edges
 
-| Conflict                                                               | Options                                                                                        |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Press scale, stepper slide or shake on an action used 100+ times a day | Keep the feedback (cost: it adds friction on a hot path), or drop it for that control          |
-| `prefers-reduced-motion` vs slide, shake, stretch                      | Default: replace movement with a fade or colour change. Ask only if the user wants zero motion |
-| Small caps acronyms vs the ban on all-caps                             | Small caps for acronyms inside sentences stays. All-caps labels and subtitles stay banned      |
-| Fluid `clamp()` headline vs a fixed size from the repo's type scale    | Follow the repo scale, or add fluid steps to it                                                |
-| `hyphens: auto` vs headlines, names and codes                          | Hyphenate body only; headlines use `balance`; names and codes get `hyphens: none`              |
-| `line-clamp` vs content users must read in full                        | Clamp in lists and cards only; full text on the detail view                                    |
-| Instant tooltips after the first vs the "every state animates" rule    | Tooltip skips animation after the first; this is intended                                      |
-| Spring on a flick vs "no spring bounce on everyday UI"                 | Spring with bounce 0 (critically damped) for flicks; bounce only if the product is playful     |
-| Brand font lacks small caps or tabular figures                         | Pick a feature-complete font, or accept a fallback face for numbers. Ask                       |
-| Repo design system contradicts any rule here                           | Repo wins for what it states; ask about the rest                                               |
+**Means:** dragging past a limit meets rising resistance, then springs back, instead of a hard wall.
+**Example:** pulling a carousel past its last slide moves it a fraction of the finger distance, and
+it eases back on release.
+**Do:** damp the drag past the bound and spring back on release.
+**Don't:** stop dead at the edge or let content fly off.
 
-When the choice is the user's, give two or three concrete options, name the one you would pick
-and why in one line, and wait.
+## Shorter exits
+
+**Means:** leaving should be quicker than arriving; the user's attention has already moved on.
+**Example:** a menu that opens in 240ms closes in about 190ms.
+**Do:** exits about 20% shorter than entrances, with a reduced-motion variant for both.
+**Don't:** make exits slower than entrances.
+
+## When rules clash
+
+All the rules above apply. A clash only happens in a specific situation: for example a press scale on
+a control used hundreds of times a day, a brand font with no small caps or tabular figures, a repo
+type scale that conflicts with fluid headlines, or reduced motion versus a slide.
+
+In that case **stop and ask the user**: name the two rules and the situation, offer 2-3 options
+with what each costs, give your pick in one line, and wait. Never resolve it silently.

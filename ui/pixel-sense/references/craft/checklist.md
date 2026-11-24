@@ -4,7 +4,7 @@ Walk it before calling any UI done. Each line links to where the rule is explain
 
 ## Mandatory rules and laws
 
-- [ ] Every row of [rules.md](rules.md) applied (typography, animation, transitions); conflicts were asked, not guessed
+- [ ] Every rule in [rules.md](rules.md) applied (typography, animation, transitions); conflicts were asked, not guessed
 - [ ] Every law in [laws.md](laws.md) that touches this screen has its build rule met
 
 ## System

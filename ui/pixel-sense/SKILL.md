@@ -40,8 +40,7 @@ animation, transitions) and every law in [craft/laws.md](references/craft/laws.m
 screen, plus [craft/checklist.md](references/craft/checklist.md). These are not suggestions and
 not "when it fits". Skip one only when the user says so for that case or the repo's own design
 system decides it. When two rules conflict, or a rule conflicts with the repo, **stop and ask the
-user** with 2-3 concrete options and your pick; never resolve it silently. Known conflicts:
-[rules.md#conflicts](references/craft/rules.md#conflicts).
+user** with 2-3 concrete options and your pick; never resolve it silently. Details: [rules.md#when-rules-clash](references/craft/rules.md#when-rules-clash).
 
 ## Hard rules
 
