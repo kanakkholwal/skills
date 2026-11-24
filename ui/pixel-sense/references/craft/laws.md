@@ -5,13 +5,16 @@ touches the screen at hand. Fuller text for the classics is in
 [../ux/02-laws-of-ux.md](../ux/02-laws-of-ux.md). If two laws clash in a specific situation, ask the
 user ([rules.md](rules.md#when-rules-clash)).
 
-Sources: [Laws of UX](https://lawsofux.com/), plus behavioural economics for the default effect.
+Sources: all 30 entries of [Laws of UX](https://lawsofux.com/) (Jon Yablonski), plus the default
+effect from behavioural economics.
 
 ## Contents
 
 - Perception: [Proximity](#law-of-proximity), [Similarity](#law-of-similarity), [Common region](#law-of-common-region), [Uniform connectedness](#law-of-uniform-connectedness), [Prägnanz](#law-of-prägnanz), [Von Restorff](#von-restorff-effect), [Aesthetic-usability](#aesthetic-usability-effect)
 - Memory and attention: [Cognitive load](#cognitive-load), [Miller's law](#millers-law), [Serial position](#serial-position-effect), [Zeigarnik](#zeigarnik-effect), [Recognition over recall](#recognition-over-recall)
 - Choices and effort: [Hick's law](#hicks-law), [Progressive disclosure](#progressive-disclosure), [Default effect](#default-effect), [Pareto](#pareto-principle), [Occam's razor](#occams-razor), [Tesler's law](#teslers-law), [Postel's law](#postels-law), [Parkinson's law](#parkinsons-law), [Paradox of the active user](#paradox-of-the-active-user), [Jakob's law](#jakobs-law)
+- Memory and attention, continued: [Chunking](#chunking), [Working memory](#working-memory), [Selective attention](#selective-attention), [Flow](#flow)
+- Decisions, continued: [Choice overload](#choice-overload), [Mental model](#mental-model), [Cognitive bias](#cognitive-bias)
 - Time and motivation: [Doherty threshold](#doherty-threshold), [Fitts's law](#fittss-law), [Goal-gradient](#goal-gradient-effect), [Peak-end rule](#peak-end-rule)
 
 ## Law of proximity
@@ -226,3 +229,74 @@ progress bar that fills smoothly.
 next step, rather than a bare "Done".
 **Do:** invest in the success state and the last step; spend delight there.
 **Don't:** end a flow on an error page or an upsell wall.
+
+## Chunking
+
+**Means:** breaking information into small, meaningful groups so it is easy to scan and process.
+**Example:** a long settings page split into titled sections (Profile, Notifications, Billing), each
+with 3-5 related fields, instead of one list of 25 controls.
+**Do:** group related content into distinct modules with a clear heading and spacing between them.
+**Don't:** present one undifferentiated wall of fields, links or text.
+
+## Working memory
+
+**Means:** the system that briefly holds information needed for the current task; it fades in
+seconds and holds only a few chunks.
+**Example:** a comparison table that carries the selected products across screens, and links that
+change colour once visited, so people do not have to remember what they already saw.
+**Do:** carry key information from screen to screen; mark what is already viewed; put the memory
+burden on the system.
+**Don't:** ask people to remember a value from one step to use it three steps later.
+
+## Selective attention
+
+**Means:** people focus on what relates to their goal and filter out the rest, including anything
+that looks like an ad (banner blindness) and changes that arrive without a strong cue (change
+blindness).
+**Example:** a promo banner styled like an ad above the checkout form gets ignored, and a price
+that changes elsewhere on the page goes unnoticed.
+**Do:** style important content unlike ads, keep it in the flow of the task, and make significant
+changes obvious (a highlight, a message).
+**Don't:** put key content in banner-shaped boxes, or change two things at once so neither is seen.
+
+## Choice overload
+
+**Means:** too many options overwhelm people and hurt both the decision and how they feel about it
+(also called the paradox of choice).
+**Example:** a plan page with 12 near-identical tiers stalls; 3 tiers with a side-by-side comparison
+and one marked "Most popular" gets chosen.
+**Do:** prioritise what is shown, offer search and filters to narrow, and enable side-by-side
+comparison when comparing is the task.
+**Don't:** list every option at the same weight and leave the sorting to the user.
+
+## Mental model
+
+**Means:** the compressed picture people hold of how a system works, built from past experience,
+which they apply to new products.
+**Example:** a cart icon, an "Add to cart" button and a step-by-step checkout match what shoppers
+already know, so they act without reading.
+**Do:** match your design to the users' existing model; research the gap with interviews and
+journey maps.
+**Don't:** make a familiar action behave differently (a trash icon that archives, a save that
+publishes).
+
+## Cognitive bias
+
+**Means:** systematic shortcuts in thinking that shape perception and decisions without people
+noticing (for example confirmation bias, anchoring, status quo bias).
+**Example:** a high "anchor" price shown first makes the middle plan look cheap; reviewers who
+already like a design read test results as proof it works.
+**Do:** know the biases in play, test with real users, and design so a biased shortcut does not
+lead to a harmful result.
+**Don't:** exploit a bias to push a choice against the user's interest; that crosses into a dark
+pattern.
+
+## Flow
+
+**Means:** the state of full, energised focus that happens when a task's challenge matches the
+person's skill.
+**Example:** an editor with instant autosave, immediate visual feedback on each action and no
+blocking dialogs lets people stay absorbed; a modal asking to confirm each change breaks it.
+**Do:** give feedback for every action, remove friction, and match difficulty to skill (progressive
+onboarding, sensible defaults).
+**Don't:** interrupt with modals, popups, forced reloads or surprise reordering during a task.

@@ -2,7 +2,8 @@
 
 One bar for every motion task: Emil Kowalski's design-engineering philosophy, Apple's fluid-interface
 principles, and library specifics for Motion and GSAP. Pick the mode, load only its reference, and
-take every value from [standards.md](standards.md). Never approximate a curve or duration.
+take every value from [standards.md](standards.md). Every principle in
+[principles.md](principles.md) that applies is mandatory. Never approximate a curve or duration.
 
 ## Modes
 

@@ -27,7 +27,7 @@ Script and reference paths are relative to this skill's folder.
 | Which UX law applies, and what to build for it | **Laws** | [craft/laws.md](references/craft/laws.md) |
 | Spacing, alignment, radius, viewport, hit areas | **Layout** | [craft/layout.md](references/craft/layout.md) |
 | Borders, shadows, masks, images, UI states | **Surfaces** | [craft/surfaces.md](references/craft/surfaces.md) |
-| Animate, review motion, jank, gestures, "what's it called" | **Motion** | [motion/index.md](references/motion/index.md) |
+| Animate, review motion, jank, gestures, "what's it called" | **Motion** | [motion/index.md](references/motion/index.md), [motion/principles.md](references/motion/principles.md) |
 | Forms, navigation, tables, search, onboarding, AI UI, i18n, a11y | **UX** | Routing table in [ux/index.md](references/ux/index.md) |
 | Styles, palettes, fonts, landing patterns, stack rules | **Catalogue** | [catalog.md](references/catalog.md) |
 
@@ -36,7 +36,8 @@ Review, Audit, Deslop and Friction are read-only until the user approves the fix
 ## Mandatory
 
 Every build, restyle and review follows **all** of [craft/rules.md](references/craft/rules.md) (typography,
-animation, transitions) and every law in [craft/laws.md](references/craft/laws.md) that touches the
+animation, transitions), [motion/principles.md](references/motion/principles.md) (every motion principle
+and technique) and every law in [craft/laws.md](references/craft/laws.md) that touches the
 screen, plus [craft/checklist.md](references/craft/checklist.md). These are not suggestions and
 not "when it fits". Skip one only when the user says so for that case or the repo's own design
 system decides it. When two rules conflict, or a rule conflicts with the repo, **stop and ask the

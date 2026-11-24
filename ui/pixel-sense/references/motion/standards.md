@@ -225,22 +225,9 @@ Concrete defaults for everyday product UI. Marketing and onboarding may stretch 
 
 ## Animation principles at UI scale
 
-Disney's twelve, translated. Film strength reads as wobble in an interface; keep each one small.
-
-| Principle                          | In UI                                                                    |
-| ---------------------------------- | ------------------------------------------------------------------------ |
-| Squash and stretch                 | Knob stretch ~12%, press `scale(0.97)`; never on text                    |
-| Anticipation                       | A 2-4% pull-back before a large move; skip for frequent actions          |
-| Staging                            | One thing moves at a time; dim or hold the rest                          |
-| Pose to pose                       | Define start and end states; let the curve do the inbetweens             |
-| Follow-through, overlapping action | Children settle 30-60ms after the parent                                 |
-| Slow in, slow out                  | Ease curves; `ease-out` for enter, `ease-in-out` for moves               |
-| Arcs                               | Curved paths for objects travelling across the screen                    |
-| Secondary action                   | A badge count ticks as the item lands in the cart                        |
-| Timing                             | Fast and snappy: 150-250ms for most UI                                   |
-| Exaggeration                       | Only on feedback that must be noticed (error shake 4-6px, success pulse) |
-| Solid drawing                      | Consistent light direction and depth in 3D or layered UI                 |
-| Appeal                             | Cohesion: one easing family, one duration scale, across the product      |
+The twelve principles and the named UI techniques (stagger, origin-aware, mask reveals, shared
+element, icon crossfade and more) are defined with examples and do's and don'ts in
+[principles.md](principles.md). All of them are mandatory where they apply.
 
 ## Laws that decide motion
 

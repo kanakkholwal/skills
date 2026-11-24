@@ -5,6 +5,7 @@ Walk it before calling any UI done. Each line links to where the rule is explain
 ## Mandatory rules and laws
 
 - [ ] Every rule in [rules.md](rules.md) applied (typography, animation, transitions); conflicts were asked, not guessed
+- [ ] Every principle in [../motion/principles.md](../motion/principles.md) that applies to the motion on screen is met
 - [ ] Every law in [laws.md](laws.md) that touches this screen has its build rule met
 
 ## System
